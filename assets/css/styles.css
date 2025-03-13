@@ -1,0 +1,178 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Navbar */
+nav {
+    position: fixed; /* Fijo en la parte superior */
+    background: rgba(3, 0, 3, 0.557); /* Asegúrate de que esté completamente transparente */
+    top: 0; /* Pegado al top */
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Se asegura que esté encima del video */
+    padding: 10px 0; /* Espaciado superior e inferior del navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra ligera para el navbar, ayuda a que los enlaces sean legibles */
+}
+
+/* Estilo de los enlaces dentro del navbar */
+nav .navbar-nav .nav-item .nav-link {
+    color: rgba(255, 255, 255, 0.897); /* Color de texto oscuro */
+    padding: 10px 15px; /* Espaciado interno de los enlaces */
+    text-decoration: none; /* Elimina subrayado */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transición para hover */
+    font-weight: 600; /* Aplica un énfasis moderado al texto */
+}
+
+/* Estilo cuando se pasa el mouse sobre los enlaces */
+nav .navbar-nav .nav-item .nav-link:hover {
+    color: rgba(206, 117, 228, 0.819); /* Color del texto cuando está en hover */
+    transform: translateY(-3px); /* Efecto de movimiento cuando el mouse pasa sobre el enlace */
+}
+
+/* Navbar para pantallas pequeñas (mobile) */
+    /* Centrar el logo */
+    nav .container-fluid {
+        display: flex;
+        justify-content: space-between; /* Espaciado adecuado entre el logo y el menú */
+        align-items: center;
+    }
+    nav .logo {
+        display: block; /* Aseguramos que el logo sea un bloque */
+        margin: 0 auto; /* Centra el logo */
+        position: relative; /* Lo coloca encima de los enlaces sin afectar a otros elementos */
+        z-index: 2;
+    }
+
+    /* Ajustar el tamaño del logo en pantallas pequeñas */
+    .navbar .logo img {
+        max-width: 120px; /* Ajusta el tamaño del logo */
+        height: auto;
+    }
+
+    /* Enlaces de navegación centrados */
+    nav .navbar-nav {
+        text-align: center; /* Centra los elementos de navegación */
+        width: 100%;
+        justify-content: center; /* Centra los enlaces */
+    }
+
+    /* Ajustes para el botón hamburguesa */
+    .navbar-toggler {
+        position: absolute; /* Posición fija para el botón de hamburguesa */
+        top: 50%;
+        right: 15px; /* Desplazamiento desde la derecha */
+        transform: translateY(-50%); /* Centra verticalmente */
+        z-index: 3; /* Asegura que el botón esté encima de los elementos */
+    }
+
+    /* Ajustes a la apariencia del ícono del botón de hamburguesa */
+    nav .navbar-toggler-icon {
+        filter: invert(100%); /* Invierte los colores del icono */
+    }
+}
+
+/* Estilo de los botones de colapsado (hamburguesa) */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    box-shadow: none; /* Elimina el borde cuando está activo */
+}
+
+/* Ajustes para el logo */
+.navbar .logo {
+    max-height: 120px; /* Ajusta el tamaño del logo */
+    width: auto;
+}
+
+/* Estilo para el logo */
+.navbar .logo img {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)); /* Efecto de brillo alrededor de los colores del logo */
+
+}
+  
+  /* CARRUSEL */
+  
+/* Contenedor del video */
+.video-contenedor {
+    position: absolute;
+    top: 0; /* Asegúrate de que empiece desde la parte superior de la página */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Asegura que el video ocupe toda la altura de la pantalla */
+    overflow: hidden; /* Esconde cualquier contenido que se desborde */
+    padding: 0;
+    z-index: 1; /* Z-index bajo para que esté debajo del navbar */
+}
+
+.video-contenedor video {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que el video cubra toda el área */
+}
+
+/* Estilos para el carrusel */
+.carrusel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.carrusel-item {
+    display: none;
+}
+
+.carrusel-item.active {
+    display: block;
+}
+
+.carrusel-texto {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+
+
+/* Footer */
+
+footer {
+    position: relative;
+    top: calc(100vh - 5px); /* Ajusta la posición vertical */
+    margin-top: 10%; /* Crea espacio desde el main */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(25, 25, 25, 0.955);
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    
+  }
+  
+  .footer p {
+    color: rgb(213, 212, 212); /* Cambiar el color del texto a negro */
+  }
