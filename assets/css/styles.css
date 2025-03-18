@@ -1,178 +1,388 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+/* Reseteo básico */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+/* Asegura que el contenido no se quede detrás del navbar */
+body {
+  overflow-x: hidden;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Establece una altura mínima */
+  overflow: hidden;
+  display: block;
+  z-index: 1; /* Asegúrate de que el header esté por encima de los otros elementos */
+}
+
+/* Asegura que el video ocupe todo el fondo del navbar */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Hace que el video ocupe toda la altura del header */
+  object-fit: cover; /* Asegura que el video cubra toda el área sin distorsión */
+  z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+/* Ajuste de video para mostrar solo la parte superior */
+.video-background-content {
+  width: 100%;
+  height: 100%; /* Hace que el video ocupe toda la altura de la ventana */
+  object-fit: cover; /* El video cubrirá todo el contenedor sin deformarse */
+  position: absolute; /* Para que se posicione en el fondo */
+  top: 0; /* Asegura que el video comience desde la parte superior */
+  left: 0; /* Asegura que el video se alinee a la izquierda */
+  z-index: -1; /* Asegura que el video esté detrás del contenido */
+}
 
 /* Navbar */
-nav {
-    position: fixed; /* Fijo en la parte superior */
-    background: rgba(3, 0, 3, 0.557); /* Asegúrate de que esté completamente transparente */
-    top: 0; /* Pegado al top */
-    left: 0;
-    width: 100%;
-    z-index: 10; /* Se asegura que esté encima del video */
-    padding: 10px 0; /* Espaciado superior e inferior del navbar */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra ligera para el navbar, ayuda a que los enlaces sean legibles */
+.navbar {
+  position: fixed; /* Asegura que el contenido del navbar se coloque por encima del video */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; /* El navbar debe estar por encima del contenido */
+  background: transparent; /* Hace que el fondo del navbar sea transparente */
+  z-index: 1; /* Asegura que el navbar esté por encima del video */
+}
+/* Ajuste de los enlaces del navbar */
+.navbar-nav .nav-item .nav-link {
+  color: rgba(255, 255, 255, 0.945); /* Texto blanco */
+  padding: 10px 15px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-/* Estilo de los enlaces dentro del navbar */
-nav .navbar-nav .nav-item .nav-link {
-    color: rgba(255, 255, 255, 0.897); /* Color de texto oscuro */
-    padding: 10px 15px; /* Espaciado interno de los enlaces */
-    text-decoration: none; /* Elimina subrayado */
-    transition: color 0.3s ease, transform 0.3s ease; /* Transición para hover */
-    font-weight: 600; /* Aplica un énfasis moderado al texto */
+/* Asegura que el enlace activo sea blanco */
+.navbar-nav .nav-item .nav-link.active {
+  color: rgba(255, 255, 255, 0.945); /* El color activo también en blanco */
 }
 
-/* Estilo cuando se pasa el mouse sobre los enlaces */
-nav .navbar-nav .nav-item .nav-link:hover {
-    color: rgba(206, 117, 228, 0.819); /* Color del texto cuando está en hover */
-    transform: translateY(-3px); /* Efecto de movimiento cuando el mouse pasa sobre el enlace */
+/* Efecto hover en los enlaces */
+.navbar-nav .nav-item .nav-link:hover {
+  color: rgba(206, 117, 228, 0.819); /* Color al pasar el mouse */
+  transform: translateY(-3px);
+}
+
+/* Estilo para el logo */
+.navbar .navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Contenedor del texto que cambiará sobre el video */
+.video-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-size: 3em;
+  font-weight: bold;
+  z-index: 2; /* Asegura que el texto esté encima del video */
+}
+
+/* Estilo de los títulos */
+.video-text {
+  color: rgb(255, 255, 255); /* Cambié el color a rojo */
+  display: none; /* Inicialmente ocultos */
+}
+
+/* Clase para mostrar el texto activo */
+.video-text.active {
+  display: block;
 }
 
 /* Navbar para pantallas pequeñas (mobile) */
-    /* Centrar el logo */
-    nav .container-fluid {
-        display: flex;
-        justify-content: space-between; /* Espaciado adecuado entre el logo y el menú */
-        align-items: center;
-    }
-    nav .logo {
-        display: block; /* Aseguramos que el logo sea un bloque */
-        margin: 0 auto; /* Centra el logo */
-        position: relative; /* Lo coloca encima de los enlaces sin afectar a otros elementos */
-        z-index: 2;
-    }
-
-    /* Ajustar el tamaño del logo en pantallas pequeñas */
-    .navbar .logo img {
-        max-width: 120px; /* Ajusta el tamaño del logo */
-        height: auto;
-    }
-
-    /* Enlaces de navegación centrados */
-    nav .navbar-nav {
-        text-align: center; /* Centra los elementos de navegación */
-        width: 100%;
-        justify-content: center; /* Centra los enlaces */
-    }
-
-    /* Ajustes para el botón hamburguesa */
-    .navbar-toggler {
-        position: absolute; /* Posición fija para el botón de hamburguesa */
-        top: 50%;
-        right: 15px; /* Desplazamiento desde la derecha */
-        transform: translateY(-50%); /* Centra verticalmente */
-        z-index: 3; /* Asegura que el botón esté encima de los elementos */
-    }
-
-    /* Ajustes a la apariencia del ícono del botón de hamburguesa */
-    nav .navbar-toggler-icon {
-        filter: invert(100%); /* Invierte los colores del icono */
-    }
+nav .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Estilo de los botones de colapsado (hamburguesa) */
+nav .logo {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar .logo img {
+  max-width: 120px;
+  height: auto;
+}
+
+.nav .navbar-nav {
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+
+nav .navbar-toggler-icon {
+  filter: invert(100%);
+}
+
 .navbar-toggler {
-    border: none;
+  border: none;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
-    box-shadow: none; /* Elimina el borde cuando está activo */
-}
-
-/* Ajustes para el logo */
-.navbar .logo {
-    max-height: 120px; /* Ajusta el tamaño del logo */
-    width: auto;
+  box-shadow: none;
 }
 
 /* Estilo para el logo */
+.navbar .logo {
+  max-height: 120px;
+  width: auto;
+}
+
 .navbar .logo img {
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)); /* Efecto de brillo alrededor de los colores del logo */
-
-}
-  
-  /* CARRUSEL */
-  
-/* Contenedor del video */
-.video-contenedor {
-    position: absolute;
-    top: 0; /* Asegúrate de que empiece desde la parte superior de la página */
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Asegura que el video ocupe toda la altura de la pantalla */
-    overflow: hidden; /* Esconde cualquier contenido que se desborde */
-    padding: 0;
-    z-index: 1; /* Z-index bajo para que esté debajo del navbar */
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
 }
 
-.video-contenedor video {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Hace que el video cubra toda el área */
-}
+/* Estilo para pantallas más pequeñas */
 
-/* Estilos para el carrusel */
-.carrusel {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-}
+@media (max-width: 992px) {
+  .video-text-container h2 {
+    display: none; /* Oculta los títulos en pantallas pequeñas */
+  }
 
-.carrusel-item {
-    display: none;
-}
+  .logo {
+    max-height: 150px; /* Ajusta la altura máxima del logo para pantallas grandes */
+    width: auto; /* Ajusta el ancho automáticamente para mantener la proporción */
+  }
 
-.carrusel-item.active {
-    display: block;
-}
+  nav ul {
+    display: block; /* Cambiar a bloque para que los elementos estén uno debajo del otro */
+    text-align: center; /* Centrar el contenido de la lista */
+  }
 
-.carrusel-texto {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
+  nav ul li {
+    display: block; /* Cambiar a bloque para que los elementos estén uno debajo del otro */
+    margin-bottom: 10px; /* Agregar espacio entre elementos apilados */
+  }
 
-h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
+  /* Evitar que el navbar o cualquier otro contenido se superponga o recorte */
+  .navbar {
+    padding-top: 20px; /* Añade un padding superior para que no quede recortado */
+    position: relative; /* Para que el z-index funcione correctamente */
+    z-index: 1; /* Z-index más bajo que el icono de la hamburguesa */
+  }
+  .header {
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con opacidad */
+  }
+
+  /* Asegurar que el navbar no se desplace hacia abajo */
+  .navbar-collapse {
+    position: relative; /* Necesario para que el z-index de .navbar-toggler funcione */
+  }
+
+  /* Asegurar que el navbar no se recorte en pantallas pequeñas */
+  .navbar-collapse {
+    padding-top: 50px; /* Ajuste el padding superior si es necesario */
+  }
+  /* Ajuste para el navbar-toggler */
+  .navbar-toggler {
+    position: absolute; /* Coloca el botón de manera absoluta */
+    top: 15px; /* Ajusta la distancia desde la parte superior */
+    right: 15px; /* Ajusta la distancia desde la derecha */
+    z-index: 1050; /* Asegura que el icono esté por encima del navbar y otros elementos */
+  }
 }
 
 p {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 
 
-/* Footer */
+.titulo-contenedor {
+  margin-top: 3%;
+  text-align: center;
+  width: 100%;
+  color: rgba(61, 6, 75, 0.977);
+  text-shadow: 2px 2px 5px white; /* Sombra blanca */
+}
 
-footer {
+.subrayado-animado {
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  color: black;
+}
+
+.subrayado-animado::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #7927a3;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: subrayado 0.5s ease-in-out forwards;
+}
+
+@keyframes subrayado {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+
+::root{
+    --bg-color: black;
+    --border-color: yellow;
+}
+.contenedor-equipo {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a varias filas */
+    justify-content: center;
+    gap: 1rem; /* Espaciado entre las tarjetas */
+    padding: 1rem;
+}
+
+.card {
+  position: relative;
+}
+.cardImg {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 1.25rem;
+    border: 0.5rem solid var(--border-color);
+    overflow: hidden;
     position: relative;
-    top: calc(100vh - 5px); /* Ajusta la posición vertical */
-    margin-top: 10%; /* Crea espacio desde el main */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(25, 25, 25, 0.955);
-    text-align: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    
+    transition: border 0.3s ease; /* Añadir transición suave para el borde */
   }
   
-  .footer p {
-    color: rgb(213, 212, 212); /* Cambiar el color del texto a negro */
+
+  .cardImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
+  
+  .personaNombre {
+    position: absolute;
+    margin-top: 3%;
+    left: 10%; /* Asegúrate de que se alinee correctamente con el borde izquierdo */
+    right: 10%; /* Esto hace que el contenedor se ajuste a todo el ancho disponible */
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.315); /* Fondo transparente con opacidad */
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 0% !important; /* Asegura que no haya padding inferior */
+    border-radius: 0.5rem;
+}
+
+
+
+.tag {
+  width: 12.5rem;
+  height: 3.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  border-top: 0.5rem solid var(--border-color);
+  border-left: 0.5rem solid var(--border-color);
+  border-radius: 1.25rem 0 0 0;
+  padding: 0.3125rem;
+}
+
+
+
+.tag::after {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  top: -1.25rem;
+  right: 0;
+  border-bottom-right-radius: 0.625rem;
+  box-shadow: 0.375rem 0.375rem var(--border-color);
+}
+
+.tag::before {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  top: -1.75rem;
+  right: 0.5rem;
+  border-bottom-right-radius: 0.625rem;
+  box-shadow: 0.375rem 0.375rem var(--border-color);
+}
+
+
+.tag > p {
+    background-color: #7927a3; /* Fondo sólido */
+    color: white;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.625rem;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3125;
+    border-radius: 0.3125rem;
+    transition: background-color 0.3s ease; /* Transición en el color de fondo */
+  }
+
+  
+
+  .card:hover .cardImg {
+    border: 0.2rem dotted  #7927a3; /* Cambiar el borde a violeta cuando se pasa el ratón */
+  }
+  
+  .card:hover .tag > p {
+    background-color: rgba(122, 39, 163, 0.747); /* Fondo semi-transparente */
+  }
+  
+  .card:hover .personaNombre {
+    background-color: rgba(122, 39, 163, 0.467); /* Fondo de la persona con un leve cambio */
+  }
+
+.tag > p > span {
+  font-weight: 600;
+}
+
+
+/* Footer */
+footer {
+  position: relative;
+  margin-top: 10%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(25, 25, 25, 0.955);
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.footer p {
+  color: rgb(213, 212, 212);
+}
