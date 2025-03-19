@@ -24,6 +24,8 @@ $contenidoEquipo = [
     <title>Dux Agencia Clarificadora</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
     <script src="./assets/js/titulos.js" defer></script>
 
 </head>
@@ -32,7 +34,7 @@ $contenidoEquipo = [
 <header class="header">
 <div class="video-background">
         <video autoplay muted loop class="video-background-content">
-            <source src="./assets/video/Video02.mp4" type="video/mp4">
+            <source src="./assets/video/Video2.mp4" type="video/mp4">
             Tu navegador no soporta el elemento video.
         </video>
     </div>
