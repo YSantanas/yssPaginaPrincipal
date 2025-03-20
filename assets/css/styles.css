@@ -214,6 +214,13 @@ p {
   text-shadow: 2px 2px 5px white; /* Sombra blanca */
 }
 
+.tituloContenedorL {
+  text-align: center;
+  font-size: 27px; /* Ajusta el tamaño según necesites */
+  color: rgba(61, 6, 75, 0.977);
+  text-shadow: 2px 2px 5px white; /* Sombra blanca */
+}
+
 .subrayado-animado {
   display: inline-block;
   position: relative;
