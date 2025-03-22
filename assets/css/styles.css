@@ -221,6 +221,13 @@ p {
   text-shadow: 2px 2px 5px white; /* Sombra blanca */
 }
 
+.titulo-card{
+  text-align: center;
+  font-size: 27px; /* Ajusta el tamaño según necesites */
+  color: rgb(154, 5, 191)  !important;;
+  text-shadow: 2px 2px 5px white; /* Sombra blanca */
+}
+
 .subrayado-animado {
   display: inline-block;
   position: relative;
@@ -380,7 +387,7 @@ p {
 /* Footer */
 footer {
   position: relative;
-  margin-top: 10%;
+  margin-top: 0;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -392,4 +399,11 @@ footer {
 
 .footer p {
   color: rgb(213, 212, 212);
+}
+
+.acceder-btn {
+  display: inline-block;  /* Asegura que no ocupe todo el ancho */
+  width: auto;  /* Ajusta al contenido */
+  text-align: center;  /* Centra el texto dentro del botón */
+  padding: 10px 20px;  /* Agrega algo de espacio alrededor del texto */
 }

@@ -1,4 +1,5 @@
 <?php
+session_start(); // Asegúrate de que la sesión esté iniciada antes de verificar la variable
 
 $contenidoCarrusel = [
     ["titulo" => "Tu seguridad es nuestra prioridad.", "descripcion" => "Evita que tu empresa incumpla con la normativa."],
@@ -40,10 +41,9 @@ $contenidoEquipo = [
         </video>
     </div>
 
-<nav class="navbar navbar-expand-lg">
-
+    <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand logo" href="#">
+        <a class="navbar-brand logo" href="./login.php">
             <img src="./assets/img/logo.png" alt="Logo" class="img-fluid" style="max-width: 120px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,10 +63,23 @@ $contenidoEquipo = [
                 <li class="nav-item">
                     <a class="nav-link" href="contacto.php">Contacto</a>
                 </li>
+
+                <?php if (isset($_SESSION['username']) && $_SESSION['username'] == 'admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add-cursos.php">Añadir</a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (isset($_SESSION['username']) && $_SESSION['username'] == 'admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./controllers/salir.php">Salir</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <!-- Títulos que se van cambiando dinámicamente -->
 <div class="video-text-container">

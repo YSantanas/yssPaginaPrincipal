@@ -1,4 +1,9 @@
-<?php include("./includes/header.php"); ?>
+<?php
+// Incluir el header
+include("./includes/header.php"); 
+
+
+?>
 
 
 <main>
