@@ -8,7 +8,7 @@ try {
 if (!$db) {
     die("Error de conexión a la base de datos.");
 } else {
-    echo "Conexión exitosa a SQLite.";
+    //echo "Conexión exitosa a SQLite.";
 }
 
 ?>

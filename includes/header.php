@@ -61,9 +61,11 @@ $contenidoEquipo = [
                     <a class="nav-link" href="servicios.php">Servicios</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="cursos.php">Cursos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="contacto.php">Contacto</a>
                 </li>
-
                 <?php if (isset($_SESSION['username']) && $_SESSION['username'] == 'admin'): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="add-cursos.php">Añadir</a>

@@ -16,17 +16,21 @@ include("./includes/header.php");
         <?php foreach ($cursos as $curso): ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="<?= $curso['titulo']; ?>">
+                    <img src="<?= $curso['imagen_url']; ?>" class="card-img-top" alt="<?= $curso['titulo']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?= $curso['titulo']; ?></h5>
                         <p class="card-text"><?= $curso['horario']; ?></p>
-                        <a href="<?= $curso['enlace']; ?>" class="btn btn-primary" target="_blank">Ver más</a>
+                        <!-- MANDA EL ID -->
+                        <a href="./vista-curso.php?id=<?= $curso['id']; ?>" class="btn btn-primary" >Ver más</a>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
+
+
+
 </main>
 <?php
 // Incluir footer
