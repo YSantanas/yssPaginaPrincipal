@@ -27,8 +27,14 @@ foreach ($usuarios as $usuario) {
 $db->exec("CREATE TABLE IF NOT EXISTS cursos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT NOT NULL,
-    horario TEXT NOT NULL,
-    enlace TEXT NOT NULL,
+    /* Nuevos campos */
+    objetivo TEXT NOT NULL,
+    direccion TEXT NOT NULL,
+    requisitos TEXT NOT NULL,
+    duracion INT NOT NULL,
+    modalidad TEXT NOT NULL,
+    /* FIN Nuevos campos */
+    enlace TEXT,
     descripcion TEXT NOT NULL,
     imagen_url TEXT NOT NULL,
     temario TEXT NOT NULL
