@@ -11,6 +11,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Elimina márgenes en el contenedor */
+main {
+  margin-top: 0; /* Evita márgenes innecesarios en la parte superior */
+  padding-top: 0; /* Evita relleno innecesario */
+}
+
+
+
 .header {
   position: relative;
   width: 100%;
@@ -19,6 +27,11 @@ body {
   display: block;
   z-index: 1; /* Asegúrate de que el header esté por encima de los otros elementos */
 }
+
+.header.video-section {
+  min-height: 80vh; /* Solo en la sección con video */
+}
+
 
 /* Asegura que el video ocupe todo el fondo del navbar */
 .video-background {
@@ -42,7 +55,83 @@ body {
   z-index: -1; /* Asegura que el video esté detrás del contenido */
 }
 
-/* Navbar */
+
+/* Contenedor del texto que cambiará sobre el video */
+.video-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-size: 3em;
+  font-weight: bold;
+  z-index: 2; /* Asegura que el texto esté encima del video */
+}
+
+/* Estilo de los títulos */
+.video-text {
+  color: rgb(255, 255, 255); /* Cambié el color a rojo */
+  display: none; /* Inicialmente ocultos */
+}
+
+/* Clase para mostrar el texto activo */
+.video-text.active {
+  display: block;
+}
+/* ---------------------------------------------------*/
+/* --------------- SEGUNDO VIDEO ---------------------*/
+/* ---------------------------------------------------*/
+/* Asegura que el video ocupe todo el fondo del navbar */
+.video-background2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Hace que el video ocupe toda la altura del header */
+  object-fit: cover; /* Asegura que el video cubra toda el área sin distorsión */
+  z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+/* Ajuste de video para mostrar solo la parte superior */
+.video-background2-content {
+  width: 100%;
+  height: 100%; /* Hace que el video ocupe toda la altura de la ventana */
+  object-fit: cover; /* El video cubrirá todo el contenedor sin deformarse */
+  position: absolute; /* Para que se posicione en el fondo */
+  top: 0; /* Asegura que el video comience desde la parte superior */
+  left: 0; /* Asegura que el video se alinee a la izquierda */
+  z-index: -1; /* Asegura que el video esté detrás del contenido */
+}
+
+
+/* Contenedor del texto que cambiará sobre el video */
+.video2-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  font-size: 3em;
+  font-weight: bold;
+  z-index: 2; /* Asegura que el texto esté encima del video */
+}
+
+/* Estilo de los títulos */
+.video2-text-container .video-text {
+  color: rgb(255, 255, 255); /* Cambié el color a rojo */
+  display: none; /* Inicialmente ocultos */
+}
+
+/* Clase para mostrar el texto activo */
+.video2-text-container .video-text.active {
+  display: block;
+}
+
+
+
+/* ------------------ Navbar --------------------*/
 .navbar {
   position: fixed; /* Asegura que el contenido del navbar se coloque por encima del video */
   top: 0;
@@ -78,29 +167,14 @@ body {
   font-weight: bold;
 }
 
-/* Contenedor del texto que cambiará sobre el video */
-.video-text-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
 
-  font-size: 3em;
+.navbar-nav .nav-link.active {
   font-weight: bold;
-  z-index: 2; /* Asegura que el texto esté encima del video */
+  color: rgba(224, 135, 247, 0.819) !important; /* Color para resaltar la opción activa */
 }
 
-/* Estilo de los títulos */
-.video-text {
-  color: rgb(255, 255, 255); /* Cambié el color a rojo */
-  display: none; /* Inicialmente ocultos */
-}
 
-/* Clase para mostrar el texto activo */
-.video-text.active {
-  display: block;
-}
+
 
 /* Navbar para pantallas pequeñas (mobile) */
 nav .container-fluid {
@@ -153,6 +227,9 @@ nav .navbar-toggler-icon {
 /* Estilo para pantallas más pequeñas */
 
 @media (max-width: 992px) {
+  .video-background2-content {
+    height: 100%; /* Ocupa toda la altura del header */
+  }
   .video-text-container h2 {
     display: none; /* Oculta los títulos en pantallas pequeñas */
   }
@@ -177,6 +254,10 @@ nav .navbar-toggler-icon {
     padding-top: 20px; /* Añade un padding superior para que no quede recortado */
     position: relative; /* Para que el z-index funcione correctamente */
     z-index: 1; /* Z-index más bajo que el icono de la hamburguesa */
+  }
+
+  .header.video-section {
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con opacidad */
   }
   .header {
     background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con opacidad */
@@ -649,7 +730,7 @@ footer {
 
 
 .custom-btn {
-  background: rgba(132, 5, 132, 0.8) !important; /* Fondo verde semitransparente */
+  background: rgba(132, 5, 132, 0.8) !important;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -659,6 +740,54 @@ footer {
 }
 
 .custom-btn:hover {
-  background: rgba(110, 1, 110, 0.859) !important;; /* Fondo verde semitransparente */
+  background: rgba(110, 1, 110, 0.859) !important;
   box-shadow: 0px 5px 1rem rgba(162, 3, 198, 0.5);
+}
+/* ---------------- C O N T A C T O -----------------*/
+
+
+.contacto-form {
+  border: 2px dashed #731d77ac; /* Borde discontinuo de 2px y color negro */
+  margin: 10%;
+  width: 70%;
+  border-radius: 20px; /* Aumenta el valor para bordes más redondeados */
+}
+.contacto-form .form-control{
+  border-radius:1rem;
+}
+.contacto-image{
+  text-align: center;
+}
+.contacto-image img{
+
+  width: 20%;
+  margin-top: -3%;
+}
+.contacto-form form{
+  padding: 10%;
+}
+.contacto-form form .row{
+  margin-bottom: -7%;
+}
+.contacto-form h3{
+  margin-bottom: 8%;
+  margin-top: -10%;
+  text-align: center;
+  color: rgba(110, 1, 110, 0.859);
+}
+
+.btnContacto
+{
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  color: #fff;
+  background-color: rgba(110, 1, 110, 0.859);
+  border: none;
+  cursor: pointer;
+}
+
+.btnContacto:hover {
+  background: rgba(164, 5, 164, 0.859) !important;
+  box-shadow: 0px 5px 1rem rgba(233, 190, 243, 0.5);
 }

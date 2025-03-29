@@ -4,7 +4,7 @@
 <main>
 
 
-    <div class="container-fluid p-2 mb-2 my-5">
+    <div class="container-fluid p-2 mb-2 my-4">
         <div class="row no-gutters">
 
             <!-- Primera columna -->

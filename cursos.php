@@ -6,14 +6,13 @@ $query = "SELECT * FROM cursos";
 $stmt = $db->query($query);
 $cursos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include("./includes/header.php");
+include("./includes/header2.php");
 
 ?>
 <main>
 
 
-<div class="container-fluid p-2 mb-5 my-5">
-        <div class="row no-gutters">
+<div class="row no-gutters mb-3 m-4">
             <div class="col-12 d-flex justify-content-center align-items-center" style="background-color: rgb(255, 255, 255); height: auto; overflow: hidden;">
                 <p class="subrayado-animado">La <strong>mejor</strong> estrategia ante la incertidumbre es la  <strong></strong>información</strong>.</p>
 

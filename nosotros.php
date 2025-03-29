@@ -4,7 +4,7 @@
 <main>
 
 
-    <div class="container-fluid p-2 mb-5 my-5">
+    <div class="container-fluid p-2 mb-5 my-4">
         <div class="row no-gutters">
             <div class="col-12 d-flex justify-content-center align-items-center" style="background-color: rgb(255, 255, 255); height: auto; overflow: hidden;">
                 <p class="subrayado-animado">Somos el <strong>socio estratégico</strong>  que convierte la incertidumbre en <strong>dirección</strong> , la confusión en <strong>estrategia</strong>  y los retos en <strong>oportunidades</strong> .</p>
