@@ -47,7 +47,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
                 <!-- Nuevo elemento antes del footer -->
                 <div class="card-central">
-                    <p class="middle-text">Horario: <?= $curso['horario']; ?></p>
+                    <p class="middle-text">Modalidad: <?= $curso['modalidad']; ?></p>
                 </div>
 
                 <!-- Footer fijo en la parte inferior -->

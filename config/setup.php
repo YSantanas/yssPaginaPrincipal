@@ -10,8 +10,8 @@ $db->exec("CREATE TABLE IF NOT EXISTS usuarios (
 
 // Insertar usuarios predefinidos si no existen
 $usuarios = [
-    ['admin', password_hash('admin123', PASSWORD_DEFAULT)],
-    ['editor', password_hash('clave123', PASSWORD_DEFAULT)]
+    ['norma', password_hash('Dux2025!', PASSWORD_DEFAULT)],
+    ['editor', password_hash('editor2025!', PASSWORD_DEFAULT)]
 ];
 
 $stmt = $db->prepare("INSERT INTO usuarios (username, password) VALUES (?, ?)");

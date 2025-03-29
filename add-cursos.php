@@ -112,9 +112,8 @@ $cursos = $stmt->fetchAll(PDO::FETCH_ASSOC); // Asegúrate de usar FETCH_ASSOC
                       <label for="temario" class="form-label">Temario</label>
                       <textarea class="form-control" id="temario" name="temario" rows="3" required></textarea>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Agregar Curso</button>
-                  </form>
+                    <button type="submit" class="btn btn-lg custom-btn d-block mx-auto">Agregar Curso</button>
+                    </form>
 
                 </div>
               </div>
@@ -148,15 +147,19 @@ $cursos = $stmt->fetchAll(PDO::FETCH_ASSOC); // Asegúrate de usar FETCH_ASSOC
                   </div>
                   <div class="card-body d-flex flex-column">
                     <h5 class="card-title"><?php echo htmlspecialchars($curso['titulo']); ?></h5>
-                    <p class="card-text"><strong>Horario:</strong> <?php echo htmlspecialchars($curso['horario']); ?></p>
+                    <p class="card-text"><strong>Modalidad:</strong>
+                      <?php
+                      $modalidades = [1 => 'Presencial', 2 => 'Remoto', 3 => 'Híbrido'];
+                      echo htmlspecialchars($modalidades[$curso['modalidad']] ?? 'Desconocida');
+                      ?>
+                    </p>
                     <p class="card-text"><?php echo htmlspecialchars($curso['descripcion']); ?></p>
                     <p class="card-text"><strong>Temario:</strong> <?php echo nl2br(htmlspecialchars($curso['temario'])); ?></p>
 
-                    <div class="mt-auto"> <!-- Esto empuja los botones hacia abajo -->
-                      <a href="<?php echo htmlspecialchars($curso['enlace']); ?>" class="btn btn-primary btn-sm me-2">Acceder</a>
+                    <div class="mt-auto align-self-center"> <!-- Esto empuja los botones hacia abajo -->
                       <form action="./controllers/eliminar-curso.php" method="POST" class="d-inline">
                         <input type="hidden" name="curso_id" value="<?php echo $curso['id']; ?>">
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este curso?');">Eliminar</button>
+                        <button type="submit" class="btn btn-danger btn-m" onclick="return confirm('¿Estás seguro de eliminar este curso?');">Eliminar</button>
                       </form>
                     </div>
                   </div>
