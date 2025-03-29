@@ -6,7 +6,7 @@ $query = "SELECT * FROM cursos";
 $stmt = $db->query($query);
 $cursos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include("./includes/header2.php");
+include("./includes/header.php");
 
 ?>
 <main>
