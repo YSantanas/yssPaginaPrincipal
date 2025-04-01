@@ -4,7 +4,7 @@ require './config/database.php'; // Conexión a la base de datos
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Depuración: Mostrar los datos enviados
-  var_dump($_POST);
+  //var_dump($_POST);
   
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -15,14 +15,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $user = $stmt->fetch();
 
   if ($user) {
-      var_dump($password); // Muestra la contraseña que el usuario ingresó
-      var_dump($user['password']); // Muestra la contraseña almacenada en la base de datos
+      //var_dump($password); // Muestra la contraseña que el usuario ingresó
+      //var_dump($user['password']); // Muestra la contraseña almacenada en la base de datos
 
       // Verificar la contraseña
       if (password_verify($password, $user['password'])) {
           $_SESSION['usuario_id'] = $user['id'];
           $_SESSION['username'] = $user['username']; // Cambié 'usuario' por 'username' para ser consistente
-          var_dump($_SESSION);  // Para ver el contenido de la sesión
+          //var_dump($_SESSION);  // Para ver el contenido de la sesión
           header("Location: add-cursos.php");
           exit();
       } else {
